@@ -2,7 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <LangVersion>latest</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Chainify.Core\Chainify.Core.csproj" />
+    </ItemGroup>
 
 </Project>
