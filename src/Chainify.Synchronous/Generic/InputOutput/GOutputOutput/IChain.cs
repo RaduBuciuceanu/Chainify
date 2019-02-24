@@ -1,9 +1,9 @@
 using Chainify.Core;
 using Chainify.Core.Generic;
-using IGVoidVoid = Chainify.Synchronous.Generic.Input.GVoidVoid.IChain;
-using IGInputInputGIoIo = Chainify.Synchronous.Generic.Input.GInputInputGIoIo.IChain;
+using IGInputInputGIoIo = Chainify.Synchronous.Generic.InputOutput.GInputInputGIoIo.IChain;
+using IGVoidVoid = Chainify.Synchronous.Generic.InputOutput.GVoidVoid.IChain;
 
-namespace Chainify.Synchronous.Generic.Input.GOutputOutput
+namespace Chainify.Synchronous.Generic.InputOutput.GOutputOutput
 {
     public interface IChain : IGVoidVoid
     {
