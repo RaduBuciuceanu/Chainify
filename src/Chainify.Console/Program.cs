@@ -1,6 +1,7 @@
 ﻿using Chainify.Core;
 using Chainify.Core.Generic;
 using Chainify.Synchronous;
+using Chainify.Synchronous.Generic.Input.GOutputOutput;
 using Chainify.Synchronous.Linq;
 using Chainify.Synchronous.Linq.Generic;
 
@@ -8,6 +9,15 @@ namespace Chainify.Console
 {
     public static class Program
     {
+        private static IVoid @void = new Void();
+        private static IGenericVoid genericVoid = new GenericVoid();
+        private static IInput<object> input = new Input();
+        private static IGenericInput genericInput = new GenericInput();
+        private static IOutput<object> output = new Output();
+        private static IGenericOutput genericOutput = new GenericOutput();
+        private static IInputOutput<object, object> inputOutput = new InputOutput();
+        private static IGenericInputOutput genericInputOutput = new GenericInputOutput();
+        
         public static void Main(string[] args)
         {
         }
@@ -29,9 +39,9 @@ namespace Chainify.Console
         }
     }
 
-    public class Input : IInput<bool>
+    public class Input : IInput<object>
     {
-        public void Execute(bool input)
+        public void Execute(object input)
         {
             throw new System.NotImplementedException();
         }
@@ -45,9 +55,9 @@ namespace Chainify.Console
         }
     }
 
-    public class Output : IOutput<string>
+    public class Output : IOutput<object>
     {
-        public string Execute()
+        public object Execute()
         {
             throw new System.NotImplementedException();
         }
@@ -61,11 +71,11 @@ namespace Chainify.Console
         }
     }
 
-    public class InputOutput : IInputOutput<string, bool>
+    public class InputOutput : IInputOutput<object, object>
     {
-        public bool Execute(string input)
+        public object Execute(object input)
         {
-            return !string.IsNullOrWhiteSpace(input);
+            throw new System.NotImplementedException();
         }
     }
 

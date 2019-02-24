@@ -1,7 +1,8 @@
 using System;
 using Chainify.Core;
 using Chainify.Core.Generic;
-using Chainify.Synchronous.Generic.Input;
+using IGOutputOutput = Chainify.Synchronous.Generic.Input.GOutputOutput.IChain;
+using IGInputInputGIoIo = Chainify.Synchronous.Generic.Input.GInputInputGIoIo.IChain;
 
 namespace Chainify.Synchronous.Generic
 {
@@ -25,23 +26,17 @@ namespace Chainify.Synchronous.Generic
             return this;
         }
 
+        public IGOutputOutput Chain<TOtherInput>(IInput<TOtherInput> other)
+        {
+            return this;
+        }
+        
         public IGInputInputGIoIo Chain(IGenericOutput other)
         {
             return this;
         }
 
         public IGInputInputGIoIo Chain<TOtherOutput>(IOutput<TOtherOutput> other)
-        {
-            return this;
-        }
-        
-        public void Execute<TInput>(TInput input)
-        {
-            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
-            Engine.WithInput(oneResult).WithInstance(Other).Execute();
-        }
-
-        public IGOutputOutput Chain<TOtherInput>(IInput<TOtherInput> other)
         {
             return this;
         }
@@ -54,6 +49,12 @@ namespace Chainify.Synchronous.Generic
         public IGInputInputGIoIo Chain<TOtherInput, TOtherOutput>(IInputOutput<TOtherInput, TOtherOutput> other)
         {
             return this;
+        }
+        
+        public void Execute<TInput>(TInput input)
+        {
+            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
+            Engine.WithInput(oneResult).WithInstance(Other).Execute();
         }
     }
 }
