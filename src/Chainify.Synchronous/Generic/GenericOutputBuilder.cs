@@ -1,7 +1,8 @@
 using System;
 using Chainify.Core;
 using Chainify.Core.Generic;
-using Chainify.Synchronous.Generic.Output;
+using IGOutputOutput = Chainify.Synchronous.Generic.Output.GOutputOutput.IChain;
+using IGInputInputGIoIo = Chainify.Synchronous.Generic.Output.GInputInputGIoIo.IChain;
 
 namespace Chainify.Synchronous.Generic
 {
