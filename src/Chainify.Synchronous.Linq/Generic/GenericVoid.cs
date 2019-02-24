@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Chainify.Core;
 using Chainify.Core.Generic;
 using Chainify.Synchronous.Generic;
-using Chainify.Synchronous.Generic.Void;
+using IGOutputOutput = Chainify.Synchronous.Generic.Void.GOutputOutput.IChain;
+using IGInputInputGIoIo = Chainify.Synchronous.Generic.Void.GInputInputGIoIo.IChain;
 
 namespace Chainify.Synchronous.Linq.Generic
 {
