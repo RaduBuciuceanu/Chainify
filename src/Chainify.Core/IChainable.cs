@@ -1,6 +1,6 @@
 namespace Chainify.Core
 {
-    public interface IOperation
+    public interface IChainable
     {
     }
 }

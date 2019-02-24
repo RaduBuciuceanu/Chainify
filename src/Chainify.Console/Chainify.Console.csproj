@@ -7,7 +7,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Chainify.Core\Chainify.Core.csproj" />
-      <ProjectReference Include="..\Chainify.Synchronous.Linq\Chainify.Synchronous.Linq.csproj" />
       <ProjectReference Include="..\Chainify.Synchronous\Chainify.Synchronous.csproj" />
     </ItemGroup>
 

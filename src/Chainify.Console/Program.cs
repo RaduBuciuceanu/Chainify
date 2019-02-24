@@ -1,25 +1,33 @@
-﻿using Chainify.Core;
+﻿using System.Collections.Generic;
+using Chainify.Core;
 using Chainify.Core.Generic;
 using Chainify.Synchronous;
-using Chainify.Synchronous.Generic.Input.GOutputOutput;
-using Chainify.Synchronous.Linq;
-using Chainify.Synchronous.Linq.Generic;
 
 namespace Chainify.Console
 {
     public static class Program
     {
-        private static IVoid @void = new Void();
-        private static IGenericVoid genericVoid = new GenericVoid();
-        private static IInput<object> input = new Input();
-        private static IGenericInput genericInput = new GenericInput();
-        private static IOutput<object> output = new Output();
-        private static IGenericOutput genericOutput = new GenericOutput();
-        private static IInputOutput<object, object> inputOutput = new InputOutput();
-        private static IGenericInputOutput genericInputOutput = new GenericInputOutput();
-        
+        private static readonly IVoid Void = new Void();
+        private static readonly IGenericVoid GenericVoid = new GenericVoid();
+        private static readonly IInput<object> Input = new Input();
+        private static readonly IGenericInput GenericInput = new GenericInput();
+        private static readonly IOutput<object> Output = new Output();
+        private static readonly IGenericOutput GenericOutput = new GenericOutput();
+        private static readonly IInputOutput<object, object> InputOutput = new InputOutput();
+        private static readonly IGenericInputOutput GenericInputOutput = new GenericInputOutput();
+
+        private static readonly IEnumerable<IChainable> All = new IChainable[]
+        {
+            Void,
+            GenericVoid,
+            Output,
+            InputOutput
+        };
+
         public static void Main(string[] args)
         {
+            var chain = new Chain(All);
+            object current = chain.Execute();
         }
     }
 
@@ -27,7 +35,7 @@ namespace Chainify.Console
     {
         public void Execute()
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(Void));
         }
     }
 
@@ -35,7 +43,7 @@ namespace Chainify.Console
     {
         public void Execute<TInput, TOutput>()
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(GenericVoid));
         }
     }
 
@@ -43,7 +51,7 @@ namespace Chainify.Console
     {
         public void Execute(object input)
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(Input));
         }
     }
 
@@ -51,7 +59,7 @@ namespace Chainify.Console
     {
         public void Execute<TInput>(TInput input)
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(GenericInput));
         }
     }
 
@@ -59,7 +67,8 @@ namespace Chainify.Console
     {
         public object Execute()
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(Output));
+            return nameof(Output);
         }
     }
 
@@ -67,7 +76,8 @@ namespace Chainify.Console
     {
         public TOutput Execute<TOutput>()
         {
-            throw new System.NotImplementedException();
+            System.Console.WriteLine(nameof(GenericOutput));
+            return (TOutput)(object)nameof(GenericOutput);
         }
     }
 

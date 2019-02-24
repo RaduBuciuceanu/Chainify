@@ -1,6 +1,6 @@
 namespace Chainify.Core
 {
-    public interface IInput<in TInput> : IOperation
+    public interface IInput<in TInput> : IChainable
     {
         void Execute(TInput input);
     }

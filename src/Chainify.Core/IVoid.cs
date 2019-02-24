@@ -1,6 +1,6 @@
 namespace Chainify.Core
 {
-    public interface IVoid : IOperation
+    public interface IVoid : IChainable
     {
         void Execute();
     }

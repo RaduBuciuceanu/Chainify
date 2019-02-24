@@ -6,18 +6,18 @@ using Chainify.Core;
 
 namespace Chainify.Synchronous
 {
-    public class Engine
+    internal class OperationExecutor
     {
         private object _instance;
         private object _current;
 
-        public Engine WithInstance(object instance)
+        public OperationExecutor WithInstance(object instance)
         {
             _instance = instance;
             return this;
         }
 
-        public Engine WithInput(object input)
+        public OperationExecutor WithInput(object input)
         {
             _current = input;
             return this;
