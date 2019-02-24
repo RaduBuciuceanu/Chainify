@@ -6,11 +6,10 @@ using Chainify.Synchronous.Linq.Generic;
 
 namespace Chainify.Console
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            new Output().Chain()
         }
     }
 
@@ -29,7 +28,7 @@ namespace Chainify.Console
             throw new System.NotImplementedException();
         }
     }
-    
+
     public class Input : IInput<bool>
     {
         public void Execute(bool input)
@@ -45,7 +44,7 @@ namespace Chainify.Console
             throw new System.NotImplementedException();
         }
     }
-    
+
     public class Output : IOutput<string>
     {
         public string Execute()

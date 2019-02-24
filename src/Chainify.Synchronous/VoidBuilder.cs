@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Chainify.Core;
 using Chainify.Core.Generic;
-using Chainify.Synchronous.Generic;
 using Chainify.Synchronous.Void;
 
 namespace Chainify.Synchronous
@@ -32,32 +29,32 @@ namespace Chainify.Synchronous
 
         public IOutputGOutput Chain(IVoid other)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public IOutputGOutput Chain(IGenericVoid other)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public IOutputGOutput Chain<TOtherInput>(IInput<TOtherInput> other)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public IOutputGOutput Chain(IGenericInput other)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public IInputGInputIoGIo Chain<TOtherInput, TOtherOutput>(IInputOutput<TOtherInput, TOtherOutput> other)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public IInputGInputIoGIo Chain(IGenericInputOutput other)
         {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }

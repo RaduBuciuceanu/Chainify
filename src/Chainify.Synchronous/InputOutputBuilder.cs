@@ -8,13 +8,6 @@ namespace Chainify.Synchronous
     public class InputOutputBuilder<TInput, TOutput> : Proxy, IOutputGOutput<TInput, TOutput>, IInputGInputIoGIo<TInput, TOutput>
     {
         public Type OneOutput { get; set; }
-
-        public TOutput Execute(TInput input)
-        {
-            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
-            object otherResult = Engine.WithInput(oneResult).WithInstance(Other).Execute();
-            return (TOutput)otherResult;
-        }
         
         public IOutputGOutput<TInput, TOutput> Chain(IVoid other)
         {
@@ -54,6 +47,13 @@ namespace Chainify.Synchronous
         public IInputGInputIoGIo<TInput, TOutput> Chain(IGenericOutput other)
         {
             return this;
+        }
+        
+        public TOutput Execute(TInput input)
+        {
+            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
+            object otherResult = Engine.WithInput(oneResult).WithInstance(Other).Execute();
+            return (TOutput)otherResult;
         }
     }
 }

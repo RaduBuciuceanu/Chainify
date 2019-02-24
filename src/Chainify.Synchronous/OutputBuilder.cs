@@ -11,13 +11,6 @@ namespace Chainify.Synchronous
 
         public Type OneOutput { get; set; }
 
-        public TOutput Execute()
-        {
-            object oneResult = Engine.WithInstance(One).Execute();
-            object otherResult = Engine.WithInput(oneResult).WithInstance(Other).Execute();
-            return (TOutput)otherResult;
-        }
-
         public IOutputGOutput<TOutput> Chain<TOtherInput>(IInput<TOtherInput> other)
         {
             return this;
@@ -56,6 +49,13 @@ namespace Chainify.Synchronous
         public IInputGInputIoGIo<TOutput> Chain(IGenericOutput other)
         {
             return this;
+        }
+        
+        public TOutput Execute()
+        {
+            object oneResult = Engine.WithInstance(One).Execute();
+            object otherResult = Engine.WithInput(oneResult).WithInstance(Other).Execute();
+            return (TOutput)otherResult;
         }
     }
 }

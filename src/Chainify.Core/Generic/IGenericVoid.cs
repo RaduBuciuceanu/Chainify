@@ -1,6 +1,6 @@
 namespace Chainify.Core.Generic
 {
-    public interface IGenericVoid
+    public interface IGenericVoid : IOperation
     {
         void Execute<TInput, TOutput>();
     }

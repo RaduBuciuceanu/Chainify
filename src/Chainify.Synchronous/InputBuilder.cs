@@ -8,8 +8,7 @@ using Chainify.Synchronous.Input;
 
 namespace Chainify.Synchronous
 {
-    public class InputBuilder<TInput> : Proxy, IOutputGOutput<TInput>,
-        IInputGInputIoGIo<TInput>
+    public class InputBuilder<TInput> : Proxy, IOutputGOutput<TInput>, IInputGInputIoGIo<TInput>
     {
         public Type OneInput { get; set; }
 
@@ -35,12 +34,6 @@ namespace Chainify.Synchronous
             return this;
         }
 
-        public void Execute(TInput input)
-        {
-            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
-            Engine.WithInput(oneResult).WithInstance(Other).Execute();
-        }
-
         public IOutputGOutput<TInput> Chain<TOtherInput>(IInput<TOtherInput> other)
         {
             return this;
@@ -59,6 +52,12 @@ namespace Chainify.Synchronous
         public IInputGInputIoGIo<TInput> Chain(IGenericInputOutput other)
         {
             return this;
+        }
+        
+        public void Execute(TInput input)
+        {
+            object oneResult = Engine.WithInput(input).WithInstance(One).Execute();
+            Engine.WithInput(oneResult).WithInstance(Other).Execute();
         }
     }
 }

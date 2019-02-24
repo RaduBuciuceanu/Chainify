@@ -1,6 +1,6 @@
 namespace Chainify.Core.Generic
 {
-    public interface IGenericOutput
+    public interface IGenericOutput : IOperation
     {
         TOutput Execute<TOutput>();
     }
