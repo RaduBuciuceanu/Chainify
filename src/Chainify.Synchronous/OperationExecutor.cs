@@ -64,7 +64,7 @@ namespace Chainify.Synchronous
             {
                 predicate();
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return false;
             }
